@@ -1,6 +1,6 @@
 
 
-body{
+body, html{
    padding: 0;
    
    margin: 0;
@@ -11,7 +11,7 @@ body{
    display: flex;
    box-sizing: border-box;
    padding-top: 10px;
-   padding-bottom: 30px;
+   
    height: 100vh;
    
    justify-content: center;
@@ -59,9 +59,9 @@ body{
   
    cursor: pointer;
    font-family: 'Sarabun', sans-serif;
-   
+   font-size: 12px;
    padding: 19px;
-   line-height: 20px;
+   line-height: 15px;
    box-shadow:2px 2px 2px gray ;
    height: 50px;
    border-radius: 0 1rem  1rem 0;
