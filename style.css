@@ -10,7 +10,7 @@ body{
 .container{
    display: flex;
    box-sizing: border-box;
-   padding-top: 20px;
+   padding-top: 10px;
    padding-bottom: 30px;
    height: 100vh;
    
@@ -155,7 +155,7 @@ body{
 }
 
 .media{
-   width: 100px;
+   width: 150px;
    
    
   
@@ -221,7 +221,7 @@ body{
 }
 .colocar_nome input{
    outline: none;
-   padding: 5px;
+   padding: 14px;
    border-radius: 10px;
    border: none;
 }

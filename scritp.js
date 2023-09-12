@@ -4,7 +4,7 @@
 
 const question =[
     {
-        questao:'1) - Qual das alternaitvas representar uma conjunção adversativa?',
+        questao:'1) - Qual das alternativas representar uma conjunção adversativa?',
         letraA:' uma , quando , desde que, porque, porquanto',
         letraB:' entretanto, todavia, mas, porém, contudo, não obstante',
         letraC:' ele , nos , quem, pois, porquanto',
@@ -12,7 +12,7 @@ const question =[
      
                   },
     {
-        questao:'2) - Quais das questões é alternativa?',
+        questao:'2) - Quais das opções é alternativa?',
         letraA:' uma , quando , desde que, no entanto',
         letraB:' ou, ora ,uma , quer...quer , seja...seja',
         letraC:'uma vez que , sempre que, por isso ',
@@ -188,13 +188,13 @@ function mostrarScore(score){
     else if(score>=2){
         
         mostrarCaixScore.setAttribute('class','media')
-        mostrarCaixScore.innerHTML=`parabéns ${pegarNome} você acertou " ${score} " `
+        mostrarCaixScore.innerHTML=`parabéns ${pegarNome} você acertou "${score}" `
     }
     
     
     else if (score<=1){
        
         mostrarCaixScore.setAttribute('class','ruim')
-        mostrarCaixScore.innerHTML=`péssimo ${pegarNome} você acertou "${score} " `
+        mostrarCaixScore.innerHTML=`péssimo ${pegarNome} você acertou "${score}" `
     }
 }
