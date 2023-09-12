@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz em JavaScript</title>
+</head>
+<body>
+    <h1>Quiz JavaScript</h1>
+    <div id="quiz-container">
+        <p id="question"></p>
+        <ul id="options"></ul>
+    </div>
+    <p id="feedback"></p>
+    <button id="next-button">Próxima Pergunta</button>
+    <p id="score">Pontuação: 0</p>
+
+    <script>
+        const questions = [
+            {
+                question: "Qual é a capital da França?",
+                options: ["Paris", "Londres", "Berlim", "Madrid"],
+                correctAnswer: "Paris"
+            },
+            {
+                question: "Quem escreveu 'Dom Quixote'?",
+                options: ["Miguel de Cervantes", "William Shakespeare", "Fyodor Dostoevsky", "Leo Tolstoy"],
+                correctAnswer: "Miguel de Cervantes"
+            },
+            {
+                question: "Qual é o maior planeta do nosso sistema solar?",
+                options: ["Terra", "Marte", "Júpiter", "Vênus"],
+                correctAnswer: "Júpiter"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        const feedbackElement = document.getElementById("feedback");
+        const nextButton = document.getElementById("next-button");
+        const scoreElement = document.getElementById("score");
+
+        function displayQuestion(index) {
+            const currentQuestion = questions[index];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = "";
+
+            currentQuestion.options.forEach(option => {
+                const li = document.createElement("li");
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.addEventListener("click", () => checkAnswer(option));
+                li.appendChild(button);
+                optionsElement.appendChild(li);
+            });
+        }
+
+        function checkAnswer(selectedAnswer) {
+            const currentQuestion = questions[currentQuestionIndex];
+            if (selectedAnswer === currentQuestion.correctAnswer) {
+                feedbackElement.textContent = "Resposta correta!";
+                score++;
+            } else {
+                feedbackElement.textContent = "Resposta incorreta.";
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                nextButton.disabled = false;
+            } else {
+                nextButton.textContent = "Ver Pontuação Final";
+            }
+        }
+
+        nextButton.addEventListener("click", () => {
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion(currentQuestionIndex);
+                nextButton.disabled = true;
+                feedbackElement.textContent = "";
+            } else {
+                questionElement.textContent = "Pontuação Final";
+                optionsElement.innerHTML = "";
+                feedbackElement.textContent = `Você acertou ${score} de ${questions.length} perguntas.`;
+                nextButton.disabled = true;
+                nextButton.style.display = "none";
+                scoreElement.textContent = `Pontuação: ${score}`;
+            }
+        });
+
+        displayQuestion(currentQuestionIndex);
+    </script>
+</body>
+</html>
