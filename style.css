@@ -236,6 +236,7 @@ body, html{
 }
 
 .botao_iniciar{
+   padding: 10px;
    width: 70%;
    height: 60%;
    flex-direction: column-reverse;
